@@ -15,6 +15,9 @@
 		1214E2DF217D09EA0027C6F0 /* smartdarkmodeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1214E2DE217D09EA0027C6F0 /* smartdarkmodeUITests.swift */; };
 		1214E2EF217D0B370027C6F0 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1214E2EE217D0B370027C6F0 /* PopupViewController.swift */; };
 		1214E30C217D19970027C6F0 /* WeatherParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1214E30B217D19970027C6F0 /* WeatherParser.swift */; };
+		12888CBA2196ADED007BEDC7 /* SunriseSunset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12888CB92196ADED007BEDC7 /* SunriseSunset.swift */; };
+		12DC47B221B65B4B00059804 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DC47B121B65B4B00059804 /* EventMonitor.swift */; };
+		12DC47B421B65CAA00059804 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DC47B321B65CAA00059804 /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		1214E2E0217D09EA0027C6F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1214E2EE217D0B370027C6F0 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		1214E30B217D19970027C6F0 /* WeatherParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherParser.swift; sourceTree = "<group>"; };
+		12888CB92196ADED007BEDC7 /* SunriseSunset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseSunset.swift; sourceTree = "<group>"; };
+		12DC47B121B65B4B00059804 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		12DC47B321B65CAA00059804 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,9 @@
 				1214E2C6217D09EA0027C6F0 /* Main.storyboard */,
 				1214E2C9217D09EA0027C6F0 /* Info.plist */,
 				1214E2CA217D09EA0027C6F0 /* smartdarkmode.entitlements */,
+				12888CB92196ADED007BEDC7 /* SunriseSunset.swift */,
+				12DC47B121B65B4B00059804 /* EventMonitor.swift */,
+				12DC47B321B65CAA00059804 /* Date.swift */,
 			);
 			path = smartdarkmode;
 			sourceTree = "<group>";
@@ -270,6 +279,9 @@
 			files = (
 				1214E2C3217D09E90027C6F0 /* ViewController.swift in Sources */,
 				1214E2C1217D09E90027C6F0 /* AppDelegate.swift in Sources */,
+				12DC47B421B65CAA00059804 /* Date.swift in Sources */,
+				12888CBA2196ADED007BEDC7 /* SunriseSunset.swift in Sources */,
+				12DC47B221B65B4B00059804 /* EventMonitor.swift in Sources */,
 				1214E30C217D19970027C6F0 /* WeatherParser.swift in Sources */,
 				1214E2EF217D0B370027C6F0 /* PopupViewController.swift in Sources */,
 			);
