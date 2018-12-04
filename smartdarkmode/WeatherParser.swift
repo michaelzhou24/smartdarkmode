@@ -13,6 +13,7 @@ func getURL(lat: Double, lon: Double) -> String {
 }
 
 func getSunriseSunset(lat: Double, lon: Double) -> [Date] {
+    let semaphore = DispatchSemaphore(value: 0)
     var dates = [Date]()
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -34,6 +35,7 @@ func getSunriseSunset(lat: Double, lon: Double) -> [Date] {
                     }
                     if let sunset = nestedDictionary["sunset"] as? String {
                         dates.append(dateFormatter.date(from: sunset)!)
+                        semaphore.signal()
                     }
                 }
             }
@@ -43,6 +45,6 @@ func getSunriseSunset(lat: Double, lon: Double) -> [Date] {
         }
     }
     task.resume()
-    while dates.count != 2 {}
+    semaphore.wait()
     return dates
 }
