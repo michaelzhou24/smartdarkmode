@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -685,11 +685,11 @@
             <objects>
                 <viewController storyboardIdentifier="PopupViewController" id="XfG-lQ-9wD" customClass="PopupViewController" customModule="smartdarkmode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="175" height="129"/>
+                        <rect key="frame" x="0.0" y="0.0" width="175" height="149"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HmK-Er-L6i">
-                                <rect key="frame" x="48" y="47" width="79" height="32"/>
+                                <rect key="frame" x="48" y="57" width="79" height="32"/>
                                 <buttonCell key="cell" type="push" title="toggle" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7xb-ih-CTn">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -699,7 +699,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jG4-r1-ckl">
-                                <rect key="frame" x="8" y="18" width="159" height="18"/>
+                                <rect key="frame" x="8" y="28" width="159" height="18"/>
                                 <buttonCell key="cell" type="check" title="sync to sunrise/sunset" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Twa-TF-oZz">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -709,23 +709,44 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jbo-Fb-rZb">
-                                <rect key="frame" x="34" y="92" width="108" height="17"/>
+                                <rect key="frame" x="34" y="105" width="108" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="smartdarkmode" id="0hf-bK-twv">
                                     <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fbZ-sQ-aFx">
+                                <rect key="frame" x="110" y="1" width="66" height="8"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="sunrise-sunset.org" id="4cy-YM-4dg">
+                                    <font key="font" metaFont="system" size="6"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BEO-be-dXZ">
+                                <rect key="frame" x="143" y="129" width="30" height="19"/>
+                                <buttonCell key="cell" type="roundRect" title="quit" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="P2y-OW-euj">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system" size="9"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="quitClicked:" target="XfG-lQ-9wD" id="nCJ-fM-sQg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="jG4-r1-ckl" firstAttribute="top" secondItem="HmK-Er-L6i" secondAttribute="bottom" constant="20" id="1iX-vA-Sbh"/>
-                            <constraint firstItem="Jbo-Fb-rZb" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="2vo-QY-NOQ"/>
-                            <constraint firstItem="jG4-r1-ckl" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="6mS-Vz-xoE"/>
-                            <constraint firstItem="HmK-Er-L6i" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="8cH-D1-v6Z"/>
-                            <constraint firstAttribute="bottom" secondItem="jG4-r1-ckl" secondAttribute="bottom" constant="20" id="8dV-M9-kGt"/>
-                            <constraint firstItem="HmK-Er-L6i" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="vOD-iZ-LnN"/>
-                            <constraint firstItem="HmK-Er-L6i" firstAttribute="top" secondItem="Jbo-Fb-rZb" secondAttribute="bottom" constant="17" id="ybj-9y-8hs"/>
-                            <constraint firstItem="Jbo-Fb-rZb" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="yzx-4A-WgH"/>
+                            <constraint firstItem="BEO-be-dXZ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="1" id="FIz-Yy-4hT"/>
+                            <constraint firstAttribute="bottom" secondItem="fbZ-sQ-aFx" secondAttribute="bottom" constant="1" id="GdK-Aa-NA1"/>
+                            <constraint firstItem="HmK-Er-L6i" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="JgN-RV-Vav"/>
+                            <constraint firstItem="Jbo-Fb-rZb" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="dvQ-GD-fvm"/>
+                            <constraint firstAttribute="trailing" secondItem="BEO-be-dXZ" secondAttribute="trailing" constant="1" id="e2H-Nm-qU2"/>
+                            <constraint firstAttribute="trailing" secondItem="fbZ-sQ-aFx" secondAttribute="trailing" constant="1" id="f59-Hw-l7l"/>
+                            <constraint firstItem="jG4-r1-ckl" firstAttribute="top" secondItem="HmK-Er-L6i" secondAttribute="bottom" constant="20" id="fRL-UV-Zoh"/>
+                            <constraint firstItem="HmK-Er-L6i" firstAttribute="top" secondItem="Jbo-Fb-rZb" secondAttribute="bottom" constant="20" id="lCD-6U-Dhg"/>
+                            <constraint firstItem="fbZ-sQ-aFx" firstAttribute="top" secondItem="jG4-r1-ckl" secondAttribute="bottom" constant="21" id="lfm-dE-soh"/>
+                            <constraint firstItem="jG4-r1-ckl" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="mjZ-Pv-J02"/>
+                            <constraint firstItem="HmK-Er-L6i" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="urh-hn-Li9"/>
                         </constraints>
                     </view>
                     <connections>
@@ -735,7 +756,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-77.5" y="604"/>
+            <point key="canvasLocation" x="-77.5" y="603.5"/>
         </scene>
     </scenes>
 </document>

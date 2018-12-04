@@ -26,7 +26,6 @@ class PopupViewController: NSViewController, CLLocationManagerDelegate {
         locMgr.delegate = self
         locMgr.startUpdatingLocation()
         isEnabled = UserDefaults.standard.string(forKey: "AppleInterfaceStyle") == "Dark"
-        print(isEnabled)
         if (isEnabled) {
             toggleButton.title = "light mode"
         } else {
@@ -34,14 +33,6 @@ class PopupViewController: NSViewController, CLLocationManagerDelegate {
         }
         //let sunTimer = Timer(timeInterval: 3600*24*7, target: self, selector: #selector(getNewSunData), userInfo: nil, repeats: true)
         //RunLoop.main.add(sunTimer, forMode: .common)
-    }
-    
-    @objc
-    func getNewSunData() {
-        let coord = locMgr.location?.coordinate
-        sunsetSunRiseTimes = getSunriseSunset(lat: (coord?.latitude)!, lon: (coord?.longitude)!)
-        sunrise = sunsetSunRiseTimes[0]
-        sunset = sunsetSunRiseTimes[1]
     }
     
     @IBAction func toggleClicked(_ sender: Any) {
@@ -74,10 +65,12 @@ class PopupViewController: NSViewController, CLLocationManagerDelegate {
             timerSunset = Timer(fireAt: sunrise, interval: 3600*24, target: self, selector: #selector(enable), userInfo: nil, repeats: true)
             RunLoop.main.add(timerSunset, forMode: .common)
             RunLoop.main.add(timerSunrise, forMode: .common)
+            print("Auto enabled")
         } else {
             toggleButton.isEnabled = false
             timerSunrise.invalidate()
             timerSunset.invalidate()
+            print("Auto disabled")
         }
     }
     
@@ -101,7 +94,10 @@ class PopupViewController: NSViewController, CLLocationManagerDelegate {
         return [(locMgr.location?.coordinate.latitude)!, (locMgr.location?.coordinate.longitude)!]
     }
     
-   
+    @IBAction func quitClicked(_ sender: Any) {
+        exit(0);
+    }
+    
 }
 
 extension PopupViewController {
