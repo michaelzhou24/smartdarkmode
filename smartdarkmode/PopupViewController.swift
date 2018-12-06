@@ -20,6 +20,7 @@ class PopupViewController: NSViewController, CLLocationManagerDelegate {
     @IBOutlet weak var autoChecked: NSButton!
     var timerSunset = Timer()
     var timerSunrise = Timer()
+    var checker = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +32,6 @@ class PopupViewController: NSViewController, CLLocationManagerDelegate {
         } else {
             toggleButton.title = "dark mode"
         }
-        //let sunTimer = Timer(timeInterval: 3600*24*7, target: self, selector: #selector(getNewSunData), userInfo: nil, repeats: true)
-        //RunLoop.main.add(sunTimer, forMode: .common)
     }
     
     @IBAction func toggleClicked(_ sender: Any) {
@@ -61,15 +60,20 @@ class PopupViewController: NSViewController, CLLocationManagerDelegate {
             }
             sunrise = sunsetSunRiseTimes[0].convertToLocalTime()
             sunset = sunsetSunRiseTimes[1].convertToLocalTime()
+            print("Sunrise: \(sunrise)")
+            print("Sunset: \(sunset)")
             timerSunrise = Timer(fireAt: sunrise, interval: 3600*24, target: self, selector: #selector(disable), userInfo: nil, repeats: true)
-            timerSunset = Timer(fireAt: sunrise, interval: 3600*24, target: self, selector: #selector(enable), userInfo: nil, repeats: true)
-            RunLoop.main.add(timerSunset, forMode: .common)
+            timerSunset = Timer(fireAt: sunset, interval: 3600*24, target: self, selector: #selector(enable), userInfo: nil, repeats: true)
             RunLoop.main.add(timerSunrise, forMode: .common)
+            RunLoop.main.add(timerSunset, forMode: .common)
+            checker = Timer.scheduledTimer(timeInterval: 60*10, target: self, selector: #selector(PopupViewController.checkForCorrectMode), userInfo: nil, repeats: true)
+            RunLoop.main.add(checker, forMode: .common)
             print("Auto enabled")
         } else {
             toggleButton.isEnabled = false
             timerSunrise.invalidate()
             timerSunset.invalidate()
+            checker.invalidate()
             print("Auto disabled")
         }
     }
@@ -92,6 +96,21 @@ class PopupViewController: NSViewController, CLLocationManagerDelegate {
     
     func getLocation() -> [CLLocationDegrees] {
         return [(locMgr.location?.coordinate.latitude)!, (locMgr.location?.coordinate.longitude)!]
+    }
+    
+    @objc
+    func checkForCorrectMode() {
+        let now = Date()
+        let sunsetTime = sunset
+        
+        let sunriseTime = sunrise
+        if now >= sunriseTime &&
+            now <= sunsetTime
+        {
+            disable()
+        } else {
+            enable()
+        }
     }
     
     @IBAction func quitClicked(_ sender: Any) {
