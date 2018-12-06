@@ -105,11 +105,15 @@ class PopupViewController: NSViewController, CLLocationManagerDelegate {
         
         let sunriseTime = sunrise
         if now >= sunriseTime &&
-            now <= sunsetTime
+            now <= sunsetTime 
         {
-            disable()
+            if UserDefaults.standard.string(forKey: "AppleInterfaceStyle") == "Dark" {
+                disable()
+            }
         } else {
-            enable()
+            if UserDefaults.standard.string(forKey: "AppleInterfaceStyle") != "Dark" {
+                enable()
+            }
         }
     }
     
